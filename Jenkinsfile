@@ -4,7 +4,9 @@ pipeline {
         stage("Pre-Build"){
             steps {
                 echo "Pre-Build"
+                sh "fuser -k 3000/tcp"
                 deleteDir()
+                echo "Pre-Build Complete"
             }
         }
         stage("Build"){
@@ -22,7 +24,9 @@ pipeline {
             steps {
                 echo "Push to Docker Hub"
                 withCredentials([usernamePassword(credentialsId: "DockerHubCredentials", passwordVariable: "dockerHubPass", usernameVariable: "dockerHubUser")]){
+                    sh "docker tag node-hello ${env.dockerHubUser}/node-hello-test:latest"
                     sh "docker login -u ${env.dockerHubUser} -p ${env.dockerHubPass}"
+                    sh "docker push  ${env.dockerHubUser}/node-hello-test:latest"
                 }
                 echo "Pushed to Docker Successfully"
             }
