@@ -4,7 +4,6 @@ pipeline {
         stage("Pre-Build"){
             steps {
                 echo "Pre-Build"
-                sh "kill $(lsof -t -i:3000)"
                 deleteDir()
                 echo "Pre-Build Complete"
             }
@@ -34,7 +33,8 @@ pipeline {
         stage("Deploy"){
             steps {
                 echo "Deploy"
-                sh "docker run -d -p 3000:3000 node-hello"
+                // sh "docker run -d -p 3000:3000 node-hello"
+                sh "docker compose down && docker compose up -d --build"
                 echo "Deploy Successful"
             }
         }
