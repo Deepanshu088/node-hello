@@ -3,7 +3,7 @@ const port = process.env.PORT || 3000;
 
 const server = http.createServer((req, res) => {
   res.statusCode = 200;
-  const msg = 'Hello Node has been running good\n'
+  const msg = 'Hello Node has been running well. And its automatic build here. :) \n'
   res.end(msg);
 });
 
