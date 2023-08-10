@@ -12,9 +12,9 @@ pipeline {
                 sh "pwd"
                 sh "ls -a"
                 sh "docker --version"
-                sh "docker build . -t node-hello"
+                sh "sudo docker build . -t node-hello"
                 sh "echo 'Build Successful' "
-                sh "docker run -p 3000:3000 node-hello"
+                sh "sudo docker run -p 3000:3000 node-hello"
             }
         }
         stage("Build"){
