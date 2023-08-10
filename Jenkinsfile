@@ -13,10 +13,7 @@ pipeline {
                 checkout scm
                 sh "pwd"
                 sh "ls -a"
-                sh "node --version"
-                sh "docker"
-                sh "docker compose"
-                sh "docker-compose"
+                sh "docker --version"
                 sh "docker build . -t node-hello"
                 sh "echo 'Build Successful' "
                 sh "docker run -p 3000:3000 node-hello"
