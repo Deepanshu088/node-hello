@@ -9,7 +9,8 @@ pipeline {
         stage("Set Up"){
             steps {
                 checkout scm
-                sh "git clone https://github.com/jenkins-docs/simple-java-maven-app.git"
+                sh "pwd"
+                sh "ls -a"
             }
         }
         stage("Build"){
