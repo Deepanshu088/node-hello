@@ -11,6 +11,9 @@ pipeline {
                 checkout scm
                 sh "pwd"
                 sh "ls -a"
+                sh "sudo docker build . -t node-hello"
+                sh "echo 'Build Successful' "
+                sh "sudo docker run -p 3000:3000 node-hello"
             }
         }
         stage("Build"){
