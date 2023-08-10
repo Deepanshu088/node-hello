@@ -4,7 +4,7 @@ pipeline {
         stage("Pre-Build"){
             steps {
                 echo "Pre-Build"
-                sh "fuser -k 3000/tcp"
+                sh "kill $(lsof -t -i:3000)"
                 deleteDir()
                 echo "Pre-Build Complete"
             }
