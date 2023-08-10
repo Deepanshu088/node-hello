@@ -13,6 +13,7 @@ pipeline {
                 checkout scm
                 sh "pwd"
                 sh "ls -a"
+                sh "node --version"
                 sh "docker"
                 sh "docker compose"
                 sh "docker-compose"
