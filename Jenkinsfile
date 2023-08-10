@@ -12,6 +12,8 @@ pipeline {
                 sh "pwd"
                 sh "ls -a"
                 sh "docker"
+                sh "docker compose"
+                sh "docker-compose"
                 sh "docker build . -t node-hello"
                 sh "echo 'Build Successful' "
                 sh "docker run -p 3000:3000 node-hello"
